@@ -1,14 +1,12 @@
 {
-  "name": "rainmakerlabs/saltedge-php-sdk",
-  "description": "PHP SDK for Saltedge",
-  "keywords": [
-    "framework",
-    "laravel"
-  ],
+  "name": "rainmakerlabs/saltedge-laravel",
+  "description": "A Laravel 5 wrapper for Saltedge",
+  "keywords":  ["saltedge", "laravel"],
   "type": "project",
   "license": "MIT",
   "require": {
     "php": ">=5.4.0",
+    "illuminate/support": "~5.0",
     "ext-curl": "*",
     "ext-json": "*"
   },
@@ -26,6 +24,16 @@
   "autoload": {
     "psr-4": {
       "Rainmakerlabs\\Saltedge\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Rainmakerlabs\\Saltedge\\SaltedgeServiceProvider"
+      ],
+      "aliases": {
+        "SaltedgePublic": "Rainmakerlabs\\Saltedge\\Facades\\SaltedgePublic",
+      }
     }
   }
 }
