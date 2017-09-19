@@ -25,15 +25,5 @@
     "psr-4": {
       "Rainmakerlabs\\Saltedge\\": "src/"
     }
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "Rainmakerlabs\\Saltedge\\SaltedgeServiceProvider"
-      ],
-      "aliases": {
-        "SaltedgePublic": "Rainmakerlabs\\Saltedge\\Facades\\SaltedgePublic",
-      }
-    }
   }
 }
