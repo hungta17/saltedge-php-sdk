@@ -25,11 +25,6 @@ class SaltedgeServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
-        $this->app['SaltedgePublic'] = function ($app) {
-            return $app[PublicApplication::class];
-        };
-
         if (function_exists('config_path')) {
             $this->publishes([
                 __DIR__.'/config/config.php' => config_path('saltedge.php'),
@@ -45,10 +40,6 @@ class SaltedgeServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(__DIR__.'/config/config.php', 'saltedge');
-
-        $this->app->singleton(PublicApplication::class, function ($app) {
-            return new PublicApplication(array_get($app['config'], 'saltedge'));
-        });
     }
 
     /**
@@ -58,9 +49,6 @@ class SaltedgeServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return [
-            PublicApplication::class,
-            'SaltedgePublic',
-        ];
+     
     }
 }
